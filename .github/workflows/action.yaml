@@ -17,7 +17,7 @@ jobs:
           sed -i -r "s/rm_old_logs_.{7}/rm_old_logs_${GITHUB_SHA:0:7}/g" ./dags/rm_old_logs.py
           git commit -a -m "replace hash"
           git push origin main
-        name: tag
+      - name: tag
         run: |
           git tag $GITHUB_SHA
           git push origin --tags
