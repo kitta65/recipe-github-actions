@@ -1,6 +1,7 @@
 name: deploy
 on: push
-  tags: "*-dev"
+  tags:
+    - *-dev
 jobs:
   main:
     name: deploy
