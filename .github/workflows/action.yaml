@@ -17,7 +17,7 @@ jobs:
           git config --local user.name  github_actions
       - name: commit
         run: |
-          sed -i -r "s/COMMIT_SHA_.{7}/COMMIT_SHA_${GITHUB_SHA:0:7}/g" ./README.md
+          echo ${COMMIT_SHA_} >> ./README.md
           git commit -a -m "replace hash"
           git push origin main
       - name: tag
