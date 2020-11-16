@@ -1,5 +1,7 @@
 name: deploy
 on: push
+  branches:
+    - main
   tags:
     - *-dev
 jobs:
