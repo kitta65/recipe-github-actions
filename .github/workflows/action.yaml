@@ -1,0 +1,23 @@
+name: deploy
+on: push
+jobs:
+  main:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: git setting
+        run: |
+          git config --local user.email unknown@example.com
+          git config --local user.name  github_actions
+      - name: commit
+        run: |
+          sed -i -r "s/rm_old_logs_.{7}/rm_old_logs_${GITHUB_SHA:0:7}/g" ./dags/rm_old_logs.py
+          git commit -a -m "replace hash"
+          git push origin main
+        name: tag
+        run: |
+          git tag $GITHUB_SHA
+          git push origin --tags
