@@ -14,10 +14,10 @@ jobs:
           git config --local user.name  github_actions
       - name: commit
         run: |
-          sed -i -r "s/rm_old_logs_.{7}/rm_old_logs_${GITHUB_SHA:0:7}/g" ./dags/rm_old_logs.py
+          sed -i -r "s/COMMIT_SHA_.{7}/COMMIT_SHA_${GITHUB_SHA:0:7}/g" ./README.md
           git commit -a -m "replace hash"
           git push origin main
       - name: tag
         run: |
-          git tag $GITHUB_SHA
+          git tag ${GITHUB_SHA:0:7}
           git push origin --tags
