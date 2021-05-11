@@ -1,26 +1,16 @@
-name: deploy
+name: feed
 on:
-  push:
-    tags:
-      - "*-dev"
+  schedule:
+    - cron: "0 8 * * *"
 jobs:
   main:
-    name: deploy
+    name: bq-release-notes
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+      - name: rss-issues-action
+        uses: guilhem/rss-issues-action
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          feed: "https://cloud.google.com/feeds/bigquery-release-notes.xml"
+          prefix: "[BQ]"
 
-      - name: git setting
-        run: |
-          git config --local user.email unknown@example.com
-          git config --local user.name  github_actions
-      - name: commit
-        run: |
-          echo ${COMMIT_SHA_} >> ./README.md
-          git commit -a -m "replace hash"
-          git push origin main
-      - name: tag
-        run: |
-          git tag ${GITHUB_SHA:0:7}
-          git push origin --tags
