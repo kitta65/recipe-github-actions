@@ -10,7 +10,7 @@ jobs:
         uses: guilhem/rss-issues-action@0.1.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          feed: "https://cloud.google.com/feeds/kubernetes-engine-release-notes.xml"
+          feed: "https://cloud.google.com/feeds/bigquery-release-notes.xml"
           prefix: "[GKE]"
           dry-run: "false"
           lastTime: "336h"
