@@ -11,8 +11,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           feed: "https://cloud.google.com/feeds/bigquery-release-notes.xml"
-          prefix: "[GKE]"
+          prefix: "[BQ]"
           dry-run: "false"
-          lastTime: "336h"
-          labels: "liens/Kubernetes"
+          lastTime: "72h"
+          labels: "release-notes"
 
