@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: rss-issues-action
-        uses: guilhem/rss-issues-action@0.1.0
+        uses: guilhem/rss-issues-action@0.2.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           feed: "https://cloud.google.com/feeds/bigquery-release-notes.xml"
