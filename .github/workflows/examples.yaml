@@ -19,9 +19,9 @@ jobs:
 
     #----- Upload Artifact -----
     - run: |
-        echo 'This is an artifact' > artifact.txt
+        echo 'This is an artifact!' > artifact.txt
     - run: |
-        echo 'added' >> artifact.txt
+        echo 'modified in the same job!' >> artifact.txt
     - uses: actions/upload-artifact@v3
       with:
         name: example-artifact
@@ -35,4 +35,6 @@ jobs:
       with:
         name: example-artifact
     - run: cat artifact.txt
+    - run: |
+        echo 'modified in another job!' >> artifact.txt
 
