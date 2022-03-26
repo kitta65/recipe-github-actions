@@ -19,6 +19,7 @@ jobs:
 
   # upload and download artifact
   uploadArtifactJob:
+    runs-on: ubuntu-latest
     steps:
     - run: |
         echo 'This is an artifact!' > artifact.txt
@@ -39,10 +40,9 @@ jobs:
 
   # expressions
   expressionExampleJob:
+    runs-on: ubuntu-latest
     steps:
     - run: echo 'GitHub ignores case'
       if: ${{ 'String' == 'string' }}
     - run: echo 'GitHub casts data types to a number'
       if: ${{ 0 == false }}
-
-
