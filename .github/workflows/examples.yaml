@@ -51,8 +51,8 @@ jobs:
       if: ${{ '1' == fromJSON(env.VALUE) }}
       env:
         VALUE: 01
-    - run: echo 'This step is NOT executed (''1'' != ''01'')'
-      if: ${{ '1' == env.VALUE }}
+    - run: echo 'This step is NOT executed ("1" != "01")'
+      if: ${{ '01' == env.VALUE }}
       env:
         VALUE: 01
 
