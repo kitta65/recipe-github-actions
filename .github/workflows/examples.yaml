@@ -65,3 +65,4 @@ jobs:
     - run: echo 'You can access context information using these syntaxes'
       if: ${{ github['sha'] == github.sha }}
     - run: echo '${{ toJSON(runner) }}'
+    - run: echo '${{ toJSON(env) }}'
