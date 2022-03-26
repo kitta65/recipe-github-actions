@@ -4,6 +4,7 @@ jobs:
   exampleJobs:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     # execute a command in on the runner
     - run: echo 'Hello GitHub Actions'
     # execute a shell script on the runner
