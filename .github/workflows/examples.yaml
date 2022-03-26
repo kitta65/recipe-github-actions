@@ -46,7 +46,14 @@ jobs:
     - run: echo 'GitHub casts data types to a number'
       if: ${{ 0 == false }}
 
-    # JSON
+  # contexts
+  contextsJob:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 'You can access context information using these syntaxes'
+      if: ${{ github['sha'] == github.sha }}
+
+    # NOTE env.VALUE is string (not bool)
     - run: echo 'This step is NOT executed (0 != 1)'
       if: ${{ 'true' == fromJSON(env.VALUE) }}
       env:
@@ -55,12 +62,3 @@ jobs:
       if: ${{ 'true' == env.VALUE }}
       env:
         VALUE: true
-
-  # contexts
-  contextsJob:
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo 'You can access context information using these syntaxes'
-      if: ${{ github['sha'] == github.sha }}
-    - run: echo '${{ toJSON(runner) }}'
-    - run: echo '${{ toJSON(env) }}'
