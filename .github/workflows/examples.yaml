@@ -22,7 +22,7 @@ jobs:
         echo 'This is an artifact' > artifact.txt
     - run: |
         echo 'added' >> artifact.txt
-    - uses: actions.upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with:
         name: example-artifact
         path: artifact.txt
