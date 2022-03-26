@@ -5,7 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # execute a command in on the runner
+
+    #----- Execute a Command on the Runner -----
     - run: echo 'Hello GitHub Actions'
-    # execute a shell script on the runner
+
+    #----- Execute a Shell Script on the Runner -----
+    # You have to use `actions/checkout@v2` before.
+    # Do not forget to add execute permission on the scripts.
     - run: ./.github/scripts/helloworld.sh
