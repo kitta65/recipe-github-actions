@@ -1,5 +1,5 @@
 name: exampleWorkflow
-on: [push]
+on: [push, manual]
 jobs:
   simpleJob:
     runs-on: ubuntu-latest
