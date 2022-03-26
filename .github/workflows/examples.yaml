@@ -1,23 +1,25 @@
 name: exampleWorkflow
 on: [push]
 jobs:
-  exampleJob:
+  simpleJob:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
-    #----- Execute a Command on the Runner -----
+    # execute command on the runner
     - run: echo 'Hello GitHub Actions'
 
-    #----- Execute a Shell Script on the Runner -----
-    # You have to use `actions/checkout@v2` before.
-    # Do not forget to add execute permission on the scripts.
+    # execute a shell script on the runner
+    # NOTE You have to use `actions/checkout@v2` before.
+    # NOTE Do not forget to add execute permission on the scripts.
     - run: ./.github/scripts/helloworld.sh
 
-    #----- Docker Container Action -----
+    # docker container action
     - uses: docker://alpine:latest
 
-    #----- Upload Artifact -----
+  # upload and download artifact
+  uploadArtifactJob:
+    steps:
     - run: |
         echo 'This is an artifact!' > artifact.txt
     - run: |
@@ -26,13 +28,21 @@ jobs:
       with:
         name: example-artifact
         path: artifact.txt
-
   downloadArtifactJob:
     runs-on: ubuntu-latest
-    needs: exampleJob
+    needs: uploadArtifactJob
     steps:
     - uses: actions/download-artifact@v3
       with:
         name: example-artifact
     - run: cat artifact.txt
+
+  # expressions
+  expressionExampleJob:
+    steps:
+    - run: echo 'GitHub ignores case'
+      if: ${{ 'String' == 'string' }}
+    - run: echo 'GitHub casts data types to a number'
+      if: ${{ 0 == false }}
+
 
