@@ -1,7 +1,7 @@
 name: exampleWorkflow
 on: [push]
 jobs:
-  exampleJobs:
+  exampleJob:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,3 +16,23 @@ jobs:
 
     #----- Docker Container Action -----
     - uses: docker://alpine:latest
+
+    #----- Upload Artifact -----
+    - run: |
+        echo 'This is an artifact' > artifact.txt
+    - run: |
+        echo 'added' >> artifact.txt
+    - uses: actions.upload-artifact@v3
+      with:
+        name: example-artifact
+        path: artifact.txt
+
+  downloadArtifactJob:
+    runs-on: ubuntu-latest
+    needs: exampleJob
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: example-artifact
+    - run: cat artifact.txt
+
