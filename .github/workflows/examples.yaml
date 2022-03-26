@@ -9,6 +9,10 @@ jobs:
     # execute command on the runner
     - run: echo 'Hello GitHub Actions'
 
+    - run: echo Hello GitHub Actions ${{ fromJSON(env.VALUE) }}
+      env:
+        VALUE: 1
+
     # execute a shell script on the runner
     # NOTE You have to use `actions/checkout@v2` before.
     # NOTE Do not forget to add execute permission on the scripts.
