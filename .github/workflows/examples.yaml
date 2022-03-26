@@ -22,13 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo 'This is an artifact!' > artifact.txt
-    - run: |
-        echo 'modified!' >> artifact.txt
+        echo 'This is an artifact!' > ${{ runner.temp }}/artifact.txt
     - uses: actions/upload-artifact@v3
       with:
         name: example-artifact
-        path: artifact.txt
+        path: ${{ runner.temp }}/artifact.txt
   downloadArtifactJob:
     runs-on: ubuntu-latest
     needs: uploadArtifactJob
