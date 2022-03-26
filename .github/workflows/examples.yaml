@@ -39,10 +39,19 @@ jobs:
     - run: cat artifact.txt
 
   # expressions
-  expressionExampleJob:
+  expressionJob:
     runs-on: ubuntu-latest
     steps:
     - run: echo 'GitHub ignores case'
       if: ${{ 'String' == 'string' }}
     - run: echo 'GitHub casts data types to a number'
       if: ${{ 0 == false }}
+
+    - run: echo 'This does not run'
+      if: ${{ fromJSON(env.BOOL) }}
+      env:
+        BOOL: false
+    - run: echo 'This runs'
+      if: ${{ fromJSON(env.BOOL) }}
+      env:
+        BOOL: true
