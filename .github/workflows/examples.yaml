@@ -1,0 +1,10 @@
+name: exampleWorkflow
+on: [push]
+jobs:
+  exampleJobs:
+    runs-on: ubuntu-latest
+    steps:
+    # execute a command in on the runner
+    - run: echo 'Hello GitHub Actions'
+    # execute a shell script on the runner
+    - run: ./.github/scripts/helloworld.sh
