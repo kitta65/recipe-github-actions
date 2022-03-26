@@ -62,3 +62,9 @@ jobs:
       if: ${{ 'true' == env.VALUE }}
       env:
         VALUE: true
+
+  # environment variable
+  environmentVariableJob:
+    runs-on: ubuntu-latest
+    steps:
+    - run: env
