@@ -47,14 +47,14 @@ jobs:
       if: ${{ 0 == false }}
 
     # JSON
-    - run: echo 'This does not run'
-      if: ${{ fromJSON(env.BOOL) }}
+    - run: echo 'This step is executed (1 == 1)'
+      if: ${{ '1' == fromJSON(env.VALUE) }}
       env:
-        BOOL: false
-    - run: echo 'This runs'
-      if: ${{ fromJSON(env.BOOL) }}
+        VALUE: 01
+    - run: echo 'This step is NOT executed (''1'' != ''01'')'
+      if: ${{ '1' == env.VALUE }}
       env:
-        BOOL: true
+        VALUE: 01
 
   # contexts
   contextsJob:
