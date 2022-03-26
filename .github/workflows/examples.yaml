@@ -13,3 +13,6 @@ jobs:
     # You have to use `actions/checkout@v2` before.
     # Do not forget to add execute permission on the scripts.
     - run: ./.github/scripts/helloworld.sh
+
+    #----- Docker Container Action -----
+    - uses: docker://alpine:latest
