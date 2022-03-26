@@ -40,6 +40,7 @@ jobs:
 
   # expressions
   expressionJob:
+    # comparison
     runs-on: ubuntu-latest
     steps:
     - run: echo 'GitHub ignores case'
@@ -47,6 +48,7 @@ jobs:
     - run: echo 'GitHub casts data types to a number'
       if: ${{ 0 == false }}
 
+    # JSON
     - run: echo 'This does not run'
       if: ${{ fromJSON(env.BOOL) }}
       env:
@@ -55,3 +57,11 @@ jobs:
       if: ${{ fromJSON(env.BOOL) }}
       env:
         BOOL: true
+
+  # contexts
+  contextsJob:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 'You can access context information using these syntaxes'
+      if: ${{ github['sha'] == github.sha }}
+    - run: echo '${{ toJSON(runner) }}'
