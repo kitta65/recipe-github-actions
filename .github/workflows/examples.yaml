@@ -105,6 +105,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: cat /etc/debian_version
+    # NOTE
+    # You have to add git in your PATH before actions/checkout.
+    # See https://github.com/actions/checkout/issues/175
     - run: |
         apt-get update
         apt-get install -y git
