@@ -1,4 +1,2 @@
 # test repository
-abc
-def
-ghi
+Examples of GitHub Actions.
