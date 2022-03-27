@@ -99,3 +99,8 @@ jobs:
     steps:
     - run: echo ${{ needs.outputDefineJob.outputs.variable }}
 
+  containerJob:
+    container:
+      image: google/cloud-sdk:alpine
+    steps:
+    - run: which gsutil
