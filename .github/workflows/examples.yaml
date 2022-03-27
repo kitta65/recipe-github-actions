@@ -34,7 +34,7 @@ jobs:
         path: ${{ runner.temp }}/artifact.txt
   artifactDownloadJob:
     runs-on: ubuntu-latest
-    needs: uploadArtifactJob
+    needs: artifactUploadJob
     steps:
     - uses: actions/download-artifact@v3
       with:
@@ -93,7 +93,7 @@ jobs:
       run: echo "::set-output name=variable::foo"
   outputAccessJob:
     runs-on: ubuntu-latest
-    needs: defineOutputJob
+    needs: outputDefineJob
     steps:
     - run: echo ${{ needs.outputDefineJob.outputs.variable }}
 
