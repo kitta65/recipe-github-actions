@@ -5,8 +5,16 @@ on:
       message:
         required: true
         type: string
+    outputs:
+      greet:
+        value: ${{ jobs.job1.outputs.greet }}
 jobs:
-  simpleJob:
+  job1:
     runs-on: ubuntu-latest
+    outputs:
+      greet: ${{ steps.step1.outputs.greet }}
     steps:
-    - run: echo ${{ inputs.message }}
+    - run: |
+        echo ${{ inputs.message }}
+        echo "::set-output name=greet::Hello from subWorkflow!"
+      id: step1
