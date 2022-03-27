@@ -99,6 +99,14 @@ jobs:
     steps:
     - run: echo ${{ needs.outputDefineJob.outputs.variable }}
 
+  # workflow commands
+  workflowCommandJob:
+    runs-on: ubuntu-latest
+    steps:
+    - id: set
+      run: echo '::set-output name=VALUE::foo'
+    - run: echo ${{ steps.set.outputs.VALUE }}
+
   containerJob:
     container:
       image: debian:latest
