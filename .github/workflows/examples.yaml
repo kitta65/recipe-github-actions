@@ -22,6 +22,8 @@ jobs:
     # docker container action
     - uses: docker://alpine:latest
 
+    - uses: ./.github/workflow/sub
+
   # upload and download artifact
   artifactUploadJob:
     runs-on: ubuntu-latest
