@@ -126,6 +126,7 @@ jobs:
     - run: cat ./README.md
 
   subWorkflowJob:
+    runs-on: ubuntu-latest
     steps:
     - uses: ./.github/workflow/sub
       with:
