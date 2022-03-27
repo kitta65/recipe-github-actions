@@ -101,7 +101,13 @@ jobs:
 
   containerJob:
     container:
-      image: google/cloud-sdk:alpine
+      image: debian:latest
     runs-on: ubuntu-latest
     steps:
-    - run: which gsutil
+    - run: cat /etc/debian_version
+
+# redisJob:
+#   redis:
+#     image: redis
+#     ports:
+#     - 6379/tcp
