@@ -82,3 +82,18 @@ jobs:
         FOO: foooo
     - run: echo "BAR=bar" >> $GITHUB_ENV
     - run: echo $BAR
+
+  # outputs
+  defineOutputJob:
+    runs-on: ubuntu-latest
+    outputs:
+      variable: ${{ steps.step1.outputs.variable }}
+    steps:
+    - id: step1
+      run: echo "::set-output name=variable::foo"
+  accessOutputJob:
+    runs-on: ubuntu-latest
+    needs: defineOutputJob
+    steps:
+    - run: echo ${{ needs.defineOutputJob.outputs.variable }}
+
