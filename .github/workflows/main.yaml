@@ -1,4 +1,4 @@
-name: exampleWorkflow
+name: mainWorkflow
 on:
   push:
     branches: [main]
@@ -124,6 +124,12 @@ jobs:
         apt-get install -y git
     - uses: actions/checkout@v2
     - run: cat ./README.md
+
+  subWorkflowJob:
+    steps:
+    - uses: ./.github/workflow/sub
+      with:
+        message: 'Calling from main workflow'
 
 # redisJob:
 #   redis:
