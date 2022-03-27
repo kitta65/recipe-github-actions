@@ -1,7 +1,0 @@
-name: subWorkflow
-on: workflow_call
-jobs:
-  NameOfJob:
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo 'from sub workflow'
