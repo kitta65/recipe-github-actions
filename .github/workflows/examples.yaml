@@ -106,6 +106,7 @@ jobs:
     - id: set
       run: echo '::set-output name=VALUE::foo'
     - run: echo ${{ steps.set.outputs.VALUE }}
+    - run: echo "::notice file=README.md,line=1::This is title!"
 
   containerJob:
     container:
