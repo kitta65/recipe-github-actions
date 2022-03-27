@@ -141,7 +141,6 @@ jobs:
       PASSWORD: ${{ secrets.PASSWORD }}
     steps:
     - run: echo $PASSWORD
-    - run:
 
 # redisJob:
 #   redis:
