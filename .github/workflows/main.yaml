@@ -135,6 +135,14 @@ jobs:
     steps:
     - run: echo ${{ needs.subWorkflowJob1.outputs.greet }}
 
+  secretJob:
+    runs-on: ubuntu-latest
+    env:
+      PASSWORD: ${{ secrets.PASSWORD }}
+    steps:
+    - run: echo $PASSWORD
+    - run:
+
 # redisJob:
 #   redis:
 #     image: redis
