@@ -128,6 +128,7 @@ jobs:
   subWorkflowJob:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - uses: ./.github/workflow/sub
       with:
         message: 'Calling from main workflow'
