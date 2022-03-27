@@ -106,7 +106,8 @@ jobs:
     - id: set
       run: echo '::set-output name=VALUE::foo'
     - run: echo ${{ steps.set.outputs.VALUE }}
-    - run: echo "::notice file=.github/workflows/examples.yaml,line=109::This is title!"
+    # Optionaly you can specify a position
+    - run: echo "::notice file=.github/workflows/examples.yaml,line=110::This line!"
 
   containerJob:
     container:
