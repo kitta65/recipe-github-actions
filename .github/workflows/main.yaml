@@ -126,7 +126,7 @@ jobs:
     - run: cat ./README.md
 
   subWorkflowJob:
-    uses: ./.github/workflow/sub.yaml
+    uses: ./.github/workflows/sub.yaml
 
 # redisJob:
 #   redis:
