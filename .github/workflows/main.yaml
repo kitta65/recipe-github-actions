@@ -40,9 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: artifactUploadJob
     steps:
-    - uses: html
+    - uses: actions/download-artifact@v3
       with:
-        name: example-artifact
+        name: html
     # the downloaded file is located in $GITHUB_WORKSPACE
     - run: cat README.html
 
