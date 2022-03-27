@@ -140,6 +140,7 @@ jobs:
     env:
       PASSWORD: ${{ secrets.PASSWORD }}
     steps:
+    # logged as ***
     - run: echo $PASSWORD
 
 # redisJob:
