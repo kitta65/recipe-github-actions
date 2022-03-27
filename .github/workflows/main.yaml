@@ -28,21 +28,23 @@ jobs:
   artifactUploadJob:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo 'This is an artifact!' > ${{ runner.temp }}/artifact.txt
+    - uses: actions/checkout@v2
+    - uses: docker://pandoc/minimal:latest
+      with:
+        args: README.md -o ${{ runner.temp }}/README.html
     - uses: actions/upload-artifact@v3
       with:
-        name: example-artifact
-        path: ${{ runner.temp }}/artifact.txt
+        name: html
+        path: ${{ runner.temp }}/README.html
   artifactDownloadJob:
     runs-on: ubuntu-latest
     needs: artifactUploadJob
     steps:
-    - uses: actions/download-artifact@v3
+    - uses: html
       with:
         name: example-artifact
     # the downloaded file is located in $GITHUB_WORKSPACE
-    - run: cat artifact.txt
+    - run: cat README.html
 
   # expressions
   expressionJob:
