@@ -105,6 +105,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: cat /etc/debian_version
+    - run: |
+        apt-get update
+        apt-get install -y git
+    - uses: actions/checkout@v2
+    - run: cat ./README.md
 
 # redisJob:
 #   redis:
