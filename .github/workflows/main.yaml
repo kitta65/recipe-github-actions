@@ -29,13 +29,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    # NOTE
+    # If the action is executed in the runner machine (not in container),
+    # ${{ runner.temp }} is useful directory to put temporary files in.
     - uses: docker://pandoc/minimal:latest
       with:
-        args: README.md -o ${{ runner.temp }}/README.html
+        args: README.md -o README.html
     - uses: actions/upload-artifact@v3
       with:
         name: html
-        path: ${{ runner.temp }}/README.html
+        path: README.html
   artifactDownloadJob:
     runs-on: ubuntu-latest
     needs: artifactUploadJob
