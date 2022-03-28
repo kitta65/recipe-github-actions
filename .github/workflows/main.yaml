@@ -112,7 +112,7 @@ jobs:
       run: echo '::set-output name=VALUE::foo'
     - run: echo ${{ steps.set.outputs.VALUE }}
     # Optionaly you can specify a position
-    # https://github.com/dr666m1/test-github-actions/commit/c32aad6525f89d97ccfb8488816af74fd252982e#annotation_3074059734
+    # https://github.com/dr666m1/recipe-github-actions/commit/c32aad6525f89d97ccfb8488816af74fd252982e#annotation_3074059734
     - run: echo "::notice::message"
 
   containerJob:

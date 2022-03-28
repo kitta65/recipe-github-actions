@@ -1,2 +1,2 @@
-# test repository
-Examples of GitHub Actions.
+# Recipe of GitHub Actions
+WIP
