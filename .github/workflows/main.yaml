@@ -148,6 +148,22 @@ jobs:
     # logged as ***
     - run: echo $PASSWORD
 
+  cacheJob:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - uses: actions/cache@v2
+      id: cache
+      with:
+        key: node_modules_cache
+        path: ~/.node_modules
+    - run: echo ${{ steps.cache.outputs.cache-hit }}
+    - run: npm install
+    - run: npm test
+
 # redisJob:
 #   redis:
 #     image: redis

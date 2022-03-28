@@ -1,0 +1,23 @@
+{
+  "name": "test-github-actions",
+  "version": "1.0.0",
+  "description": "Examples of GitHub Actions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dr666m1/test-github-actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dr666m1/test-github-actions/issues"
+  },
+  "homepage": "https://github.com/dr666m1/test-github-actions#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
