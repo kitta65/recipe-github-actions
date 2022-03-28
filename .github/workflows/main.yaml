@@ -158,9 +158,11 @@ jobs:
     - uses: actions/cache@v2
       id: cache
       with:
-        key: node_modules_cache
-        path: ~/.node_modules
-    - run: echo ${{ steps.cache.outputs.cache-hit }}
+        key: hashFiles('**/package-lock.json')
+        # See https://docs.npmjs.com/cli/v8/commands/npm-cache
+        path: ~/.npm
+    - run: echo "Cache Hit!"
+      if: ${{ steps.cache.outputs.cache-hit }}
     - run: npm install
     - run: npm test
 
