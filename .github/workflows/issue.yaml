@@ -1,4 +1,4 @@
-name: NameOfWorkflow
+name: issueWorkflow
 on:
   issues:
     types:
@@ -9,6 +9,6 @@ jobs:
     steps:
     - run: gh issue comment $ISSUE --body "Sorry, I'm not readey to accept any issue."
       env:
-        GITHUB_TOKENS: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ISSUE: ${{ github.event.issue.html_url }}
 
