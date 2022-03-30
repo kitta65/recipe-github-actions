@@ -184,6 +184,8 @@ jobs:
   environmentJob:
     runs-on: ubuntu-latest
     environment: production
+    steps:
+    - run: echo 'environementJob'
 
 
 # redisJob:
