@@ -172,7 +172,7 @@ jobs:
       matrix:
         greet: [Hello, Good night]
         person: [Alice, Bob]
-        punctuation: [!, .]
+        punctuation: ["!", "."]
       include:
         person: Alice
         relation: "my sweet "
