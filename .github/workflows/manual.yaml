@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        required: false
+        required: true
         default: world
         type: string
 jobs:
