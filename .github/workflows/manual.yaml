@@ -1,10 +1,11 @@
 name: manualWorkflow
-on: workflow_dispatch
-  inputs:
-    name:
-      required: false
-      default: world
-      type: string
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        required: false
+        default: world
+        type: string
 jobs:
   greet:
     runs-on: ubuntu-latest
