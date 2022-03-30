@@ -171,12 +171,19 @@ jobs:
     strategy:
       matrix:
         greet: [Hello, Hi]
-        person: [Alice, Bob]
+        name: [Alice, Bob]
+        exclude:
+        - greet: Hello
+          name: Bob
         include:
-        - person: Alice
-          additionalExclamation: "!!!!!"
+        - greet: Hey
+          name: Carol
     steps:
-    - run: echo ${{ matrix.greet }} ${{ matrix.person }}'!'${{ matrix.additionalExclamation }}
+    - run: echo '${{ matrix.greet }} ${{ matrix.name }}.'
+
+  environmentJob:
+    runs-on: ubuntu-latest
+    environment: production
 
 
 # redisJob:
