@@ -169,9 +169,10 @@ jobs:
   matrixJob:
     runs-on: ubuntu-latest
     strategy:
-      greet: ["Hello", "Good night"]
-      person: ["Alice", "Bob"]
-      punctuation: ["!", "."]
+      matrix:
+        greet: ["Hello", "Good night"]
+        person: ["Alice", "Bob"]
+        punctuation: ["!", "."]
     steps:
     - run: echo ${{ matrix.greet }} ${{ matrix.person }}${{ matrix.punctuation }}
 
