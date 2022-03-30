@@ -122,8 +122,8 @@ jobs:
     steps:
     - run: cat /etc/debian_version
     # NOTE
-    # You have to add git in your PATH before actions/checkout.
-    # See https://github.com/actions/checkout/issues/175
+    # If git is not in your PATH,
+    # the repository will be downloaded using the GitHub REST API.
     - uses: actions/checkout@v2
     - run: cat ./README.md
 
