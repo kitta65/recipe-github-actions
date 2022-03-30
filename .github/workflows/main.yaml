@@ -174,7 +174,7 @@ jobs:
         person: [Alice, Bob]
         punctuation: ["!", "."]
         include:
-          person: Alice
+        - person: Alice
           relation: "my sweet "
     steps:
     - run: echo ${{ matrix.greet }} ${{ matrix.relation }}${{ matrix.person }}${{ matrix.punctuation }}
