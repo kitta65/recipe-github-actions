@@ -124,9 +124,6 @@ jobs:
     # NOTE
     # You have to add git in your PATH before actions/checkout.
     # See https://github.com/actions/checkout/issues/175
-    - run: |
-        apt-get update
-        apt-get install -y git
     - uses: actions/checkout@v2
     - run: cat ./README.md
 
