@@ -181,11 +181,13 @@ jobs:
     steps:
     - run: echo '${{ matrix.greet }} ${{ matrix.name }}.'
 
-  environmentJob:
+  protectedJob:
+    # You can configure protection rules.
+    # Settings > Environements > production
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://github.com
+      url: https://example.com
     steps:
     - run: echo 'environementJob'
 
