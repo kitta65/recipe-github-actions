@@ -183,7 +183,9 @@ jobs:
 
   environmentJob:
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: https://github.com
     steps:
     - run: echo 'environementJob'
 
