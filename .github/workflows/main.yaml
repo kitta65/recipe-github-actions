@@ -152,6 +152,9 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
+    # NOTE
+    # Actually, you do not have to use actions/cache
+    # because actions/setup-node supports caching packages dependencies.
     - uses: actions/cache@v2
       id: cache
       with:
