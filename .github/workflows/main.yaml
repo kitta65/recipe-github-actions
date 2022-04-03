@@ -204,10 +204,16 @@ jobs:
       id-token: write
     steps:
     - uses: actions/checkout@v3
-    - uses: google-github-actions/auth@v0
+    - uses: google-github-actions/auth@v0.3.1
       with:
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
+    - id: 'gcloud'
+      name: 'gcloud'
+      run: |-
+        gcloud auth login --brief --cred-file=${{ steps.auth.outputs.credentials_file_path }}
+        gcloud services list
+
     # Google Cloud SDK is pre-installed but this step is needed
     - uses: google-github-actions/setup-gcloud@v0
     - run: gcloud logging write recipe-github-actions "Hello from GitHub Actions!"
