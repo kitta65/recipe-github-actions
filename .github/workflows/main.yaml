@@ -191,6 +191,21 @@ jobs:
     steps:
     - run: echo 'environementJob'
 
+  oidcJob:
+    # # prerequisite
+    # * create service account
+    # * add permisson of `roles/logging.logWriter`
+    # * enable IAM Service Account Credentials API
+    # * create workload identity pool and provider
+    # * connect workload identity pool to service account
+    # * add secrets to GitHub repository
+    runs-on: ubntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: google-github-actions/auth@v0
+      with:
+        workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
 # redisJob:
 #   redis:
