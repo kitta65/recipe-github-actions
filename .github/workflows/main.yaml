@@ -209,9 +209,6 @@ jobs:
       with:
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
-        # Setting audience is not recommended.
-        # See https://github.com/google-github-actions/auth
-        audience: ${{ github.server_url }}/${{ github.repository_owner }}
     # Google Cloud SDK is pre-installed
     - run: gcloud logging write recipe-github-actions 'Hello from GitHub Actions!'
 
