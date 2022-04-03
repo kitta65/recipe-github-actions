@@ -210,6 +210,7 @@ jobs:
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
         create_credentials_file: true
+        audience: https://github.com/dr666m1
     - run: |
         gcloud auth login --brief --cred-file=${{ steps.auth.outputs.credentials_file_path }}
         gcloud services list
