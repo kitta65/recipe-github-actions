@@ -199,17 +199,18 @@ jobs:
     # * create workload identity pool and provider
     # * connect workload identity pool to service account
     # * add secrets to GitHub repository
+
+    # Google Cloud SDK is pre-installed
     runs-on: ubuntu-latest
     permissions:
       id-token: write
     steps:
-    - run: which gcloud
     - uses: actions/checkout@v3
     - uses: google-github-actions/auth@v0
       with:
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account: ${{ secrets.SERVICE_ACCOUNT }}
-    - run: which gcloud
+    - runs: gcloud logging write recipe-github-actions "Hello from GitHub Actions!"
 
 # redisJob:
 #   redis:
