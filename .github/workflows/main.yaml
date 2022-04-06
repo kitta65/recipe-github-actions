@@ -23,6 +23,11 @@ jobs:
 
     # docker container action
     - uses: docker://alpine:latest
+      with:
+        entrypoint: echo
+        args:
+        - Hello
+        - alpine
 
   # upload and download artifact
   artifactUploadJob:
@@ -212,8 +217,17 @@ jobs:
     # Google Cloud SDK is pre-installed
     - run: gcloud logging write recipe-github-actions 'Hello from GitHub Actions!'
 
-# redisJob:
-#   redis:
-#     image: redis
-#     ports:
-#     - 6379/tcp
+  serviceJob:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+    steps:
+    - uses: docker://redis:latest
+      with:
+        entrypoint: redis-cli
+        args: ["-h", "redis", "set", "foo", "bar"]
+    - uses: docker://redis:latest
+      with:
+        entrypoint: redis-cli
+        args: ["-h", "redis", "get", "foo"]
