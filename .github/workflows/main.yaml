@@ -25,9 +25,7 @@ jobs:
     - uses: docker://alpine:latest
       with:
         entrypoint: echo
-        args:
-        - Hello
-        - alpine
+        args: Hello alpine!
 
   # upload and download artifact
   artifactUploadJob:
