@@ -226,8 +226,8 @@ jobs:
     - uses: docker://redis:latest
       with:
         entrypoint: redis-cli
-        args: ["-h", "redis", "set", "foo", "bar"]
+        args: -h redis set foo bar
     - uses: docker://redis:latest
       with:
         entrypoint: redis-cli
-        args: ["-h", "redis", "get", "foo"]
+        args: -h redis get foo
