@@ -1,0 +1,9 @@
+name: 'My javascript action'
+description: 'Simple action to write log message'
+inputs:
+  log-message:
+    description: 'log message'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'

@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'My docker container action'
+description: 'Simple action to use cowsay'
 inputs:
   what-to-say:
     description: 'What to say'

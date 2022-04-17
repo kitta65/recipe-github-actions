@@ -240,3 +240,9 @@ jobs:
         what-to-say: "I'm a unicorn!"
     - uses: ./.github/actions/docker
       id: docker-default
+
+    - run: cd .github/actions/javascript; npm install; cd -
+    - id: javascript
+      uses: ./.github/actions/javascript
+      with:
+        log-message: "Hello from javascript!"
