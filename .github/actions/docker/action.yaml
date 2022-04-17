@@ -1,0 +1,12 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  what-to-say:
+    description: 'What to say'
+    required: true
+    default: 'Nothing to say...'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.what-to-say }}

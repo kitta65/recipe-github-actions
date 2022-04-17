@@ -229,3 +229,13 @@ jobs:
       with:
         entrypoint: redis-cli
         args: -h redis get foo
+
+  myActionJob:
+    runs-on: ubuntu-latest
+    steps:
+      uses: ./.github/actions/docker
+      id: docker
+      with:
+        what-to-say: "I'm a unicorn!"
+      uses: ./.github/actions/docker
+      id: docker default
