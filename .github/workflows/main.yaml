@@ -234,6 +234,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - uses: ./.github/actions/docker
       id: docker
       with:
@@ -248,3 +249,6 @@ jobs:
       uses: ./.github/actions/javascript
       with:
         log-message: "Hello from javascript!"
+
+    - id: composite
+      uses: ./.github/actions/composite
