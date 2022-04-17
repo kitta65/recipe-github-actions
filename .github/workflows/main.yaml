@@ -94,7 +94,7 @@ jobs:
     - run: echo $BAR
 
   # outputs
-  outputDefineJob:
+  outputDeclareJob:
     runs-on: ubuntu-latest
     outputs:
       variable: ${{ steps.step1.outputs.variable }}
@@ -103,7 +103,7 @@ jobs:
       run: echo "::set-output name=variable::foo"
   outputAccessJob:
     runs-on: ubuntu-latest
-    needs: outputDefineJob
+    needs: outputDeclareJob
     steps:
     - run: echo ${{ needs.outputDefineJob.outputs.variable }}
 
