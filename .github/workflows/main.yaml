@@ -238,4 +238,4 @@ jobs:
       with:
         what-to-say: "I'm a unicorn!"
     - uses: ./.github/actions/docker
-      id: docker default
+      id: docker-default
