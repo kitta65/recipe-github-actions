@@ -3,5 +3,5 @@ description: 'Simple composite action'
 runs:
   using: "composite"
   steps:
-    - run: echo Hello World
+    - run: echo "Hello from composite Action!"
       shell: bash

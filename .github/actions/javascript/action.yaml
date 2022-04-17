@@ -1,7 +1,7 @@
 name: 'My javascript action'
 description: 'Simple action to write log message'
 inputs:
-  log-message:
+  message:
     description: 'log message'
     required: true
 runs:

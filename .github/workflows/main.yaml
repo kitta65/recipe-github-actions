@@ -244,11 +244,12 @@ jobs:
 
     # In the official example, node_module directory is included in version control.
     # See https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action#commit-tag-and-push-your-action-to-github
-    - run: cd .github/actions/javascript; npm install; cd -
+    - run: npm install
+      working-directory: ./.github/actions/javascript
     - id: javascript
       uses: ./.github/actions/javascript
       with:
-        log-message: "Hello from javascript!"
+        message: "Hello from javascript!"
 
     - id: composite
       uses: ./.github/actions/composite
