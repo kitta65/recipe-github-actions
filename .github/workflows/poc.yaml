@@ -2,5 +2,6 @@ on: [push, pull_request]
 jobs:
   poc:
     runs-on: ubuntu-latest
+    steps:
     - run: echo $GITHUB_REF_TYPE
     - run: echo $GITHUB_REF_NAME
