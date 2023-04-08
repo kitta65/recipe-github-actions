@@ -1,0 +1,15 @@
+name: version
+on: [push]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dr666m1/tag-version-match
+        id: version
+        with:
+          file: ./package.json
+          query: ./version
+      - run: |
+          echo ${{ steps.version.outputs.extension }}
+          echo ${{ steps.version.outputs.version }}
