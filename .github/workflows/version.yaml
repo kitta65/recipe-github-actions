@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dr666m1/tag-version-match@v0.0.1
+      - uses: dr666m1/tag-version-match@latest
         id: version
         with:
           file: ./package.json
-          query: ./version
+          query: .version
       - run: |
-          echo ${{ steps.version.outputs.extension }}
-          echo ${{ steps.version.outputs.version }}
+          echo ${{ steps.version.outputs.tag-version }}
+          echo ${{ steps.version.outputs.file-version }}
