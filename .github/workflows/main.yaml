@@ -202,6 +202,9 @@ jobs:
     # * create workload identity pool and provider (use default audience)
     # * connect workload identity pool to service account
     # * add secrets to GitHub repository
+
+    # disable (this job is not working)
+    if: false
     runs-on: ubuntu-latest
     permissions:
       id-token: write
